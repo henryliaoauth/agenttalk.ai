@@ -2,27 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>AgentTalk.ai</title>
   <style>
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
+      width: 100%;
+      overflow: hidden;
+      position: fixed;
+    }
+    
+    .iframe-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
     }
+    
     iframe {
       width: 100%;
-      height: 100vh;
+      height: 100%;
       border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    /* 针对iOS设备的额外调整 */
+    @supports (-webkit-touch-callout: none) {
+      body, html, .iframe-container {
+        height: -webkit-fill-available;
+      }
     }
   </style>
 </head>
 <body>
-  <iframe
-    src="https://qa.agent.authme.ai/chat/4SsHv4vfoKkcHiAM"
-    frameborder="0"
-    allow="microphone">
-  </iframe>
+  <div class="iframe-container">
+    <iframe
+      src="https://qa.agent.authme.ai/chat/4SsHv4vfoKkcHiAM"
+      frameborder="0"
+      allow="microphone">
+    </iframe>
+  </div>
 </body>
 </html>
