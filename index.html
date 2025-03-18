@@ -29,7 +29,6 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      /* 安全区域处理 */
       padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
       box-sizing: border-box;
     }
@@ -67,7 +66,6 @@
   </div>
 
   <script>
-    // 动态调整iframe高度
     function adjustHeight() {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -84,12 +82,10 @@
       }
     }
 
-    // 初始调整和窗口大小变化时调整
     window.addEventListener('load', adjustHeight);
     window.addEventListener('resize', adjustHeight);
     window.addEventListener('orientationchange', adjustHeight);
     
-    // 对于某些iOS设备，需要延迟处理
     setTimeout(adjustHeight, 300);
   </script>
 </body>
